@@ -1,5 +1,5 @@
 organism: "Hericium erinaceus"
-assembly_accession: ""     # uzupełnimy w kolejnym tasku, po sprawdzeniu w NCBI
+assembly_accession: "GCA_965276415.1"
 busco_lineage: "fungi_odb10"
 threads: 4
 
