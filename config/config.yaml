@@ -1,7 +1,7 @@
 organism: "Hericium erinaceus"
 assembly_accession: "GCA_965276415.1"
 busco_lineage: "fungi_odb10"
-threads: 4
+threads: 2
 
 paths:
   raw_genome: "data/raw/genome.fasta"
