@@ -1,0 +1,8 @@
+organism: "Hericium erinaceus"
+assembly_accession: ""     # uzupełnimy w kolejnym tasku, po sprawdzeniu w NCBI
+busco_lineage: "fungi_odb10"
+threads: 4
+
+paths:
+  raw_genome: "data/raw/genome.fasta"
+  results_dir: "results"
