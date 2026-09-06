@@ -1,0 +1,37 @@
+configfile: "config/config.yaml"
+
+rule seqkit_stats:
+    input:
+        config["paths"]["raw_genome"]
+    output:
+        "results/seqkit/stats.tsv"
+    shell:
+        """
+        seqkit stats -a -T {input} > {output}
+        """
+
+rule quast:
+    input:
+        config["paths"]["raw_genome"]
+    output:
+        "results/quast/report.tsv"
+    params:
+        outdir = "results/quast"
+    shell:
+        """
+        quast.py {input} -o {params.outdir} --threads {config[threads]} --fungus
+        """
+
+rule genome_subset_demo:
+    input:
+        config["paths"]["raw_genome"]
+    output:
+        "data/raw/genome_subset_demo.fasta"
+    params:
+        n_largest = 3
+    shell:
+        """
+        seqkit sort -l -r {input} > {output}.sorted.tmp
+        seqkit head -n {params.n_largest} {output}.sorted.tmp > {output}
+        rm {output}.sorted.tmp
+        """
